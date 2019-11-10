@@ -9,16 +9,22 @@
         <Dialogo texto="Eu e meus amigos estávamos te esperando!" customClass="top-left" />
       </div>
     </div>
+    <div class="hero__buttons">
+      <Button texto="Adotar" url="/adotar" />
+      <Button texto="Doar" url="/doar" backgroundColor="orange" textColor="yellow" />
+    </div>
   </section>
 </template>
 
 <script>
 import Titulo from '@/components/Titulo.vue';
 import Dialogo from '@/components/Dialogo.vue';
+import Button from '@/components/Button.vue';
 export default {
   components: {
     Titulo,
     Dialogo,
+    Button,
   }
 }
 </script>
@@ -83,6 +89,16 @@ export default {
   top: 50%;
   right: 0;
   transform: translateY(-50%) translateX(90%);
+}
+
+.hero__buttons {
+
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 40px;
+
 }
 
 </style>
