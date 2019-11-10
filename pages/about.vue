@@ -6,9 +6,11 @@
 
 <script>
 import Header from '@/components/common/Header.vue';
+import Dialogo from '@/components/Dialogo.vue';
 export default {
   components: {
-    Header
+    Header,
+    Dialogo
   }
 }
 </script>

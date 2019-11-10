@@ -10,6 +10,7 @@
   --color-primary: #D966FF;
   --color-highlight: #FFDE59;
   --color-background: #D9D9D9;
+  --color-grey: #737373;
 }
 
 html {
