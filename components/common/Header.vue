@@ -1,10 +1,10 @@
 <template>
   <header class="header">
     <div class="container header__container">
-      <div class="brand">
+      <a href="/" class="brand">
         <img src="~/assets/logo.png" class="brand--image" alt="Logo" />
         <p class="brand--text">Focinhos Anônimos</p>
-      </div>
+      </a>
       <nav class="header__nav">
         <a href="/about" class="header__item">About</a>
         <a href="/faq" class="header__item">FAQ</a>
@@ -45,4 +45,21 @@ export default {};
 .brand--image {
   margin-right: 10px;
 }
+
+.header__nav {
+
+  display: flex;
+  align-items: center;
+
+}
+
+.header__item {
+
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+
+}
+
 </style>
