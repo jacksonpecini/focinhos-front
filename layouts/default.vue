@@ -9,6 +9,7 @@
 :root {
   --color-primary: #D966FF;
   --color-highlight: #FFDE59;
+  --color-background: #D9D9D9;
 }
 
 html {

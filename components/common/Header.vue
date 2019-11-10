@@ -9,8 +9,8 @@
         <a href="/about" class="header__item">About</a>
         <a href="/faq" class="header__item">FAQ</a>
         <a href="/ajuda" class="header__item">Ajuda</a>
+        <a href="/login" class="header__item">Login</a>
       </nav>
-      <a href="/login" class="header__item">Login</a>
     </div>
   </header>
 </template>
