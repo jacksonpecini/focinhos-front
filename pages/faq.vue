@@ -12,16 +12,16 @@
                     Jack Pecini
                 </p>
                 <p class="faq__text">
+                    E-mail: jackson_pecini10@gmail.com
+                </p>
+                <p class="faq__text">
+                    Dhiessica
+                </p>
+                <p class="faq__text">
                     E-mail: XXXXXXXXXXXXXXX
                 </p>
                 <p class="faq__text">
-                    Jack Pecini
-                </p>
-                <p class="faq__text">
-                    E-mail: XXXXXXXXXXXXXXX
-                </p>
-                <p class="faq__text">
-                    Jack Pecini
+                    Bianca
                 </p>
                 <p class="faq__text">
                     E-mail: XXXXXXXXXXXXXXX
