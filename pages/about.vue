@@ -3,7 +3,7 @@
     <Header />
     <main class="main">
         <Titulo texto="Sobre Nós" />
-        <Info>
+        <Info :withBackground="true">
             <div class="about__content">
                 <p class="faq__text">
                     A ideia principal utilizada para a criação do site é não ter contato visual

@@ -3,7 +3,7 @@
     <Header />
     <main class="main">
         <Titulo texto="FAQ" />
-        <Info>
+        <Info :withBackground="true">
             <div class="faq__content">
                 <h3 class="faq__title">
                     Para mais informações
