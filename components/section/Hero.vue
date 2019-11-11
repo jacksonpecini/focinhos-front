@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="hero__buttons">
-      <Button texto="Adotar" url="/adotar" />
-      <Button texto="Doar" url="/doar" backgroundColor="orange" textColor="yellow" />
+      <Button texto="Adotar" url="/adotar/adotar" />
+      <Button texto="Doar" url="Doar/doar" backgroundColor="orange" textColor="yellow" />
     </div>
   </section>
 </template>

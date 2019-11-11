@@ -12,7 +12,7 @@
                     Jack Pecini
                 </p>
                 <p class="faq__text">
-                    E-mail: jackson_pecini10@gmail.com
+                    E-mail: jacksonpecini10@gmail.com
                 </p>
                 <p class="faq__text">
                     Dhiessica
