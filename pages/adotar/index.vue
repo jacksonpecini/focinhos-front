@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      activeIndex: 1,
+      activeIndex: 0,
       slides: [
         {
           id: 0
@@ -108,12 +108,22 @@ export default {
 }
 
 .adotar__body {
-  min-height: 200px;
+  min-height: 220px;
+  
+}
+
+.adotar__footer{
+  display: flex;
+  position: relative;
+  bottom: -95;
 }
 
 .footer__options {
   display: flex;
   padding: 20px;
+  position: relative;
+  border-top: solid;
+  border-top-color: white;
 }
 
 .option {
