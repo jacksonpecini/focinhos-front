@@ -96,26 +96,35 @@ export default {
 
 .doar__image {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 20px;
+  left: -10px;
   width: 120px;
-  height: 120px;
-  transform: rotate(-90deg);
+  height: 100px;
+  transform: rotate(90deg);
 }
 
 .dialogo {
   margin-top: 40px;
+
+}
+.dialogo::after {
+  margin-top: 40px;
+  top: -40px;
+  transform: rotate(45deg);
+  left: -10px;
+  
 }
 
 .doar__body {
-  min-height: 220px;
+  padding-top: 40px;
+  min-height: 250px;
   
 }
 
 .doar__footer{
   display: flex;
   position: relative;
-  bottom: 0;
+  bottom: -95px;
 }
 
 .footer__options {

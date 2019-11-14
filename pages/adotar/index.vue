@@ -108,14 +108,15 @@ export default {
 }
 
 .adotar__body {
-  min-height: 220px;
+  padding-top: 40px;
+  min-height: 240px;
   
 }
 
 .adotar__footer{
   display: flex;
   position: relative;
-  bottom: -95;
+  bottom: -100px;
 }
 
 .footer__options {
