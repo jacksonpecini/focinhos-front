@@ -3,9 +3,10 @@
     <Header />
     <main class="main">
       <Titulo texto="Mais Sobre Você" />
+      <img src="~/assets/cat.png" class="adotar__image" alt/>
       <Info>
         <div class="adotar__content">
-          <img src="~/assets/cat.png" class="adotar__image" alt />
+          
           <div class="adotar__body">
             <Form1 v-if="activeIndex === 0" />
           </div>
@@ -37,11 +38,11 @@ export default {
     Titulo,
     Info,
     Dialogo,
-    Form1,
+    Form1
   },
   data() {
     return {
-      activeIndex: 1,
+      activeIndex: 0,
       slides: [
         {
           id: 0
@@ -95,11 +96,11 @@ export default {
 
 .adotar__image {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 270px;
+  left: 583px;
   width: 120px;
   height: 120px;
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
 }
 
 .dialogo {
@@ -107,12 +108,22 @@ export default {
 }
 
 .adotar__body {
-  min-height: 200px;
+  padding-top: 40px;
+  min-height: 240px;
+}
+
+.adotar__footer {
+  display: flex;
+  position: relative;
+  bottom: -100px;
 }
 
 .footer__options {
   display: flex;
   padding: 20px;
+  position: relative;
+  border-top: solid;
+  border-top-color: white;
 }
 
 .option {
@@ -127,7 +138,6 @@ export default {
 .option--active {
   background-color: white;
 }
-
 </style>
 
 
