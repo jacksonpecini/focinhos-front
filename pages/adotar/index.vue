@@ -21,7 +21,8 @@
               ></div>
             </div>
             <div class="footer__actions">
-              <Button texto="Continuar" type="button" :onClick="() => { activeIndex +=1 }" />
+              <Button v-if="activeIndex < 3" texto="Continuar" type="button" :onClick="() => { activeIndex +=1 }" />
+              <Button v-else texto="Finalizar" type="button" :onClick="submit" />
             </div>
           </div>
         </div>
@@ -83,6 +84,9 @@ export default {
         ...data
       }
       console.log('current user', this.user);
+    },
+    submit() {
+      console.log('submit data', this.user);
     }
   }
 };
