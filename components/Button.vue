@@ -1,5 +1,8 @@
 <template>
-  <a :href="url" :class="`btn bg--${backgroundColor} text--${textColor}`">
+  <button v-if="type === 'submit' || type === 'button'" :type="type" class="btn" v-on:click="onClick">
+    {{texto}}
+  </button>
+  <a v-else :href="url" :class="`btn bg--${backgroundColor} text--${textColor}`">
     {{texto}}
   </a>
 </template>
@@ -8,7 +11,9 @@
 export default {
   props: [
     "url",
+    "type",
     "texto",
+    "onClick",
     "backgroundColor",
     "textColor"
   ]

@@ -3,12 +3,13 @@
     <Header />
     <main class="main">
       <Titulo texto="Mais Sobre Você" />
-      <img src="~/assets/cat.png" class="adotar__image" alt/>
       <Info>
         <div class="adotar__content">
-          
           <div class="adotar__body">
             <Form1 v-if="activeIndex === 0" />
+            <Form2 @setUserData="setUserData" v-if="activeIndex === 1" />
+            <Form3 @setUserData="setUserData" v-if="activeIndex === 2" />
+            <Form4 @setUserData="setUserData" v-if="activeIndex === 3" />
           </div>
           <div class="adotar__footer">
             <div class="footer__options">
@@ -19,7 +20,9 @@
                 v-on:click="() => goToSlide(index)"
               ></div>
             </div>
-            <div class="footer__actions"></div>
+            <div class="footer__actions">
+              <Button texto="Continuar" type="button" :onClick="() => { activeIndex +=1 }" />
+            </div>
           </div>
         </div>
       </Info>
@@ -32,13 +35,21 @@ import Titulo from "@/components/Titulo.vue";
 import Info from "@/components/Info.vue";
 import Dialogo from "@/components/Dialogo.vue";
 import Form1 from "./form1.vue";
+import Form2 from "./form2.vue";
+import Form3 from "./form3.vue";
+import Form4 from "./form4.vue";
+import Button from '@/components/Button.vue';
 export default {
   components: {
     Header,
     Titulo,
     Info,
     Dialogo,
-    Form1
+    Form1,
+    Form2,
+    Form3,
+    Form4,
+    Button
   },
   data() {
     return {
@@ -56,13 +67,22 @@ export default {
         {
           id: 3
         }
-      ]
+      ],
+      user: {},
     };
   },
   methods: {
     goToSlide(index) {
       console.log("go to index", index);
       this.activeIndex = index;
+    },
+    setUserData(data) {
+      console.log('set user data', data);
+      this.user = {
+        ...this.user,
+        ...data
+      }
+      console.log('current user', this.user);
     }
   }
 };
@@ -86,7 +106,7 @@ export default {
 
 .adotar__content {
   position: relative;
-  height: 400px;
+  height: 500px;
   color: #000;
   display: flex;
   flex-direction: column;
@@ -114,16 +134,19 @@ export default {
 
 .adotar__footer {
   display: flex;
-  position: relative;
-  bottom: -100px;
+  flex-direction: column;
+  margin-top: 40px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .footer__options {
   display: flex;
   padding: 20px;
   position: relative;
-  border-top: solid;
-  border-top-color: white;
+  border-top: 1px solid #fff;
 }
 
 .option {
@@ -138,6 +161,11 @@ export default {
 .option--active {
   background-color: white;
 }
+
+.btn {
+  font-size: 16px;
+}
+
 </style>
 
 
