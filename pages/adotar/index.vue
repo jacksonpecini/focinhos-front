@@ -25,7 +25,6 @@
     </main>
   </div>
 </template>
-
 <script>
 import Header from "@/components/common/Header.vue";
 import Titulo from "@/components/Titulo.vue";
