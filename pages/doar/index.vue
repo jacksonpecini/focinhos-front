@@ -5,9 +5,11 @@
       <Titulo texto="Doação" />
       <Info>
         <div class="doar__content">
-          <img src="~/assets/dog.png" class="doar__image" alt />
           <div class="doar__body">
             <Form10 v-if="activeIndex === 0" />
+            <Form11 @setUserData="setUserData" v-if="activeIndex === 1" />
+            <Form12 @setUserData="setUserData" v-if="activeIndex === 2" />
+            <Form13 @setUserData="setUserData" v-if="activeIndex === 3" />
           </div>
           <div class="doar__footer">
             <div class="footer__options">
@@ -19,11 +21,13 @@
               ></div>
             </div>
             <div class="footer__actions"></div>
+             <Button v-if="activeIndex < 3" texto="Continuar" type="button" :onClick="() => { activeIndex +=1 }" />
+             <Button v-else texto="Finalizar" type="button" :onClick="submit" />
           </div>
         </div>
       </Info>
     </main>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -32,6 +36,10 @@ import Titulo from "@/components/Titulo.vue";
 import Info from "@/components/Info.vue";
 import Dialogo from "@/components/Dialogo.vue";
 import Form10 from "./form10.vue";
+import Form11 from "./form11.vue";
+import Form12 from "./form12.vue";
+import Form13 from "./form13.vue";
+import Button from "@/components/Button.vue";
 export default {
   components: {
     Header,
@@ -39,6 +47,10 @@ export default {
     Info,
     Dialogo,
     Form10,
+    Form11,
+    Form12,
+    Form13,
+    Button
   },
   data() {
     return {
@@ -63,6 +75,17 @@ export default {
     goToSlide(index) {
       console.log("go to index", index);
       this.activeIndex = index;
+    },
+    setUserData(data) {
+      console.log('set user data', data);
+      this.user = {
+      ...this.user,
+      ...data
+    }
+      console.log('current user', this.user);
+    },
+    submit() {
+      console.log('submit data', this.user);
     }
   }
 };
@@ -86,7 +109,7 @@ export default {
 
 .doar__content {
   position: relative;
-  height: 400px;
+  height: 500px;
   color: #000;
   display: flex;
   flex-direction: column;
@@ -96,8 +119,8 @@ export default {
 
 .doar__image {
   position: absolute;
-  top: 20px;
-  left: -10px;
+  top: 270px;
+  left: 837px;
   width: 120px;
   height: 100px;
   transform: rotate(90deg);
@@ -123,16 +146,19 @@ export default {
 
 .doar__footer{
   display: flex;
-  position: relative;
-  bottom: -95px;
+  flex-direction: column;
+  margin-top: 40px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .footer__options {
   display: flex;
   padding: 20px;
   position: relative;
-  border-top: solid;
-  border-top-color: white;
+  border-top: 1px solid #fff;
 }
 
 .option {
@@ -146,6 +172,10 @@ export default {
 
 .option--active {
   background-color: white;
+}
+
+.btn {
+  font-size: 16px;
 }
 
 </style>

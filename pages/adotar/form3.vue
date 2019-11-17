@@ -2,8 +2,9 @@
   <div class="form form--2">
     <form class="form form__grid">
       <FormCheckbox label="Você é estudante?" :options="studentOptions" :onChange="setStudent" />
-      <FormInput id="state" label="Quantas pessoas moram com você?" :onChange="(e) => setState('qtdPeople', e.target.value)" />
       <FormCheckbox label="Quem são as pessoas que moram com você?" :options="peopleOptions" :onChange="setPeopleType" />
+      <FormCheckbox label="Gênero do animal" :options="genders" :onChange="setGender" />
+      <FormInput id="state" label="Quantas pessoas moram com você?" :onChange="(e) => setState('qtdPeople', e.target.value)" />
     </form>
   </div>
 </template>
@@ -19,6 +20,10 @@ export default {
       studentOptions: [
         "Sim",
         "Não"
+      ],
+      genders: [
+        "Feminino",
+        "Masculino",
       ],
       peopleOptions: [
         "Familiares",
@@ -47,6 +52,10 @@ export default {
       } else {
         this.user.isStudent = false;
       }
+      this.$emit('setUserData', this.user);
+    },
+        setGender(option) {
+      this.user.petGender = option;
       this.$emit('setUserData', this.user);
     },
     setPeopleType(option) {

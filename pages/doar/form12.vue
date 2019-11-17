@@ -1,9 +1,10 @@
 <template>
   <div class="form form--2">
     <form class="form form__grid">
-      <FormCheckbox label="Possui algum animal de estimação?" :options="havePet" :onChange="setHavePet" />
-      <FormCheckbox label="qual espécie está buscando para adotar?" :options="species" :onChange="setSpecie" />
-      <FormCheckbox label="Qual porte para adotar?" :options="sizes" :onChange="setSize" />
+      <FormCheckbox label="Idade?" :options="age" :onChange="setAge" />
+      <FormCheckbox label="Qual é a espécie?" :options="species" :onChange="setSpecie" />
+      <FormCheckbox label="Gênero do animal" :options="genders" :onChange="setGender" />
+      <FormCheckbox label="Tem alguma necessidade especial?" :options="special" :onChange="setSpecial" />
     </form>
   </div>
 </template>
@@ -16,19 +17,22 @@ export default {
   data() {
     return {
       user: {},
-      havePet: [
-        "Gato",
-        "Cachorro",
-        "Não possuo"
+      age: [
+        "Filhote",
+        "Adulto",
+        "Idoso"
       ],
       species: [
         "Gato",
         "Cachorro",
       ],
-      sizes: [
-        'Pequeno',
-        'Médio',
-        'Grande'
+      genders: [
+        "Feminino",
+        "Masculino",
+      ],
+      special: [
+        'Sim',
+        'Não',
       ]
     }
   },
@@ -46,16 +50,20 @@ export default {
       this.user[item] = value;
       this.$emit('setUserData', this.user);
     },
-    setHavePet(option) {
-      this.user.havePet = option;
+    setAge(option) {
+      this.user.age = option;
       this.$emit('setUserData', this.user);
     },
     setSpecie(option) {
       this.user.petSpecie = option;
       this.$emit('setUserData', this.user);
     },
-    setSize(option) {
-      this.user.petSize = option;
+    setGender(option) {
+      this.user.petGender = option;
+      this.$emit('setUserData', this.user);
+    },
+    setSpecial(option) {
+      this.user.petSpecial = option;
       this.$emit('setUserData', this.user);
     }
   }
