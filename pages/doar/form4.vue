@@ -1,10 +1,8 @@
 <template>
   <div class="form form--2">
     <form class="form form__grid">
-      <FormInput id="state" label="Nome completo" :onChange="(e) => setState('name', e.target.value)" />
-      <FormInput id="state" label="CPF" :onChange="(e) => setState('cpf', e.target.value)" />
-      <FormInput id="state" label="E-mail" :onChange="(e) => setState('email', e.target.value)" />
-      <FormInput id="state" label="Senha" :onChange="(e) => setState('password', e.target.value)" />
+      <FormCheckbox label="Pelagem" :options="['Curta', 'Média', 'Longa']" :onChange="(value) => setState('pelage', value)" />
+      <FormCheckbox label="Qual é o seu porte?" :options="['Pequeno', 'Médio', 'Grande']" :onChange="(value) => setState('size', value)" />
     </form>
   </div>
 </template>
@@ -12,26 +10,28 @@
 <script>
 import Dialogo from "@/components/Dialogo.vue";
 import FormInput from '@/components/form/FormInput.vue';
+import FormCheckbox from '@/components/form/FormCheckbox.vue';
 export default {
   data() {
     return {
-      user: {}
+      pet: {},
     }
   },
   props: [
-    "setUserData"
+    "setPetData"
   ],
   components: {
     Dialogo,
     FormInput,
+    FormCheckbox,
   },
   methods: {
     setState(item, value) {
       console.log(`change ${item} with value`, value);
-      this.user[item] = value;
-      let data = {...this.user};
+      this.pet[item] = value;
+      let data = {...this.pet};
       console.log('data to set', data);
-      this.$emit('setUserData', data);
+      this.$emit('setPetData', data);
     },
   }
 };

@@ -1,9 +1,10 @@
 <template>
   <div class="form form--2">
     <form class="form form__grid">
-      <FormCheckbox label="Você é estudante?" :options="studentOptions" :onChange="setStudent" />
-      <FormInput id="state" label="Quantas pessoas moram com você?" :onChange="(e) => setState('qtdPeople', e.target.value)" />
-      <FormCheckbox label="Quem são as pessoas que moram com você?" :options="peopleOptions" :onChange="setPeopleType" />
+      <FormInput id="state" label="Estado onde mora" :onChange="(e) => setState('state', e.target.value)" />
+      <FormInput id="state" label="Cidade" :onChange="(e) => setState('city', e.target.value)" />
+      <FormInput id="state" label="Bairro" :onChange="(e) => setState('neighborhood', e.target.value)" />
+      <FormInput id="state" label="Tipo de moradia" :onChange="(e) => setState('type', e.target.value)" />
     </form>
   </div>
 </template>
@@ -11,20 +12,10 @@
 <script>
 import Dialogo from "@/components/Dialogo.vue";
 import FormInput from '@/components/form/FormInput.vue';
-import FormCheckbox from '@/components/form/FormCheckbox.vue';
 export default {
   data() {
     return {
-      user: {},
-      studentOptions: [
-        "Sim",
-        "Não"
-      ],
-      peopleOptions: [
-        "Familiares",
-        "Amigos",
-        "Cônjuge"
-      ]
+      user: {}
     }
   },
   props: [
@@ -33,26 +24,15 @@ export default {
   components: {
     Dialogo,
     FormInput,
-    FormCheckbox,
   },
   methods: {
     setState(item, value) {
       console.log(`change ${item} with value`, value);
       this.user[item] = value;
-      this.$emit('setUserData', this.user);
+      let data = {...this.user};
+      console.log('data to set', data);
+      this.$emit('setUserData', data);
     },
-    setStudent(option) {
-      if(option === 'Sim') {
-        this.user.isStudent = true;
-      } else {
-        this.user.isStudent = false;
-      }
-      this.$emit('setUserData', this.user);
-    },
-    setPeopleType(option) {
-      this.user.peopleType = option;
-      this.$emit('setUserData', this.user);
-    }
   }
 };
 </script>
@@ -60,7 +40,7 @@ export default {
 <style>
 
 .form {
-  padding: 0 20px;
+
 }
 
 .form__grid {

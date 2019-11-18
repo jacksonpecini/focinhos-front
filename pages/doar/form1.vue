@@ -1,5 +1,5 @@
 <template>
-  <div class="form form--10">
+  <div class="form form--1">
     <Dialogo
       texto="Para encontrar um novo companheiro para seu animalzinho,precisamos saber um pouco sobre ele."
       customClass="top-right"

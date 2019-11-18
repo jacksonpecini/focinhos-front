@@ -10,6 +10,7 @@
             <Form2 @setUserData="setUserData" v-if="activeIndex === 1" />
             <Form3 @setUserData="setUserData" v-if="activeIndex === 2" />
             <Form4 @setUserData="setUserData" v-if="activeIndex === 3" />
+            <Form5 @setUserData="setUserData" v-if="activeIndex === 4" />
           </div>
           <div class="adotar__footer">
             <div class="footer__options">
@@ -21,7 +22,7 @@
               ></div>
             </div>
             <div class="footer__actions">
-              <Button v-if="activeIndex < 3" texto="Continuar" type="button" :onClick="() => { activeIndex +=1 }" />
+              <Button v-if="activeIndex < 4" texto="Continuar" type="button" :onClick="() => { activeIndex +=1 }" />
               <Button v-else texto="Finalizar" type="button" :onClick="submit" />
             </div>
           </div>
@@ -39,7 +40,9 @@ import Form1 from "./form1.vue";
 import Form2 from "./form2.vue";
 import Form3 from "./form3.vue";
 import Form4 from "./form4.vue";
+import Form5 from "./form5.vue";
 import Button from '@/components/Button.vue';
+import axios from 'axios';
 export default {
   components: {
     Header,
@@ -50,6 +53,7 @@ export default {
     Form2,
     Form3,
     Form4,
+    Form5,
     Button
   },
   data() {
@@ -67,6 +71,9 @@ export default {
         },
         {
           id: 3
+        },
+        {
+          id: 4
         }
       ],
       user: {},
@@ -85,8 +92,11 @@ export default {
       }
       console.log('current user', this.user);
     },
-    submit() {
+    async submit() {
       console.log('submit data', this.user);
+      let res = await axios.post('http://localhost:8080/api/user', this.user);
+      localStorage.email = res.data.email;
+      window.location.pathname = '/pets';
     }
   }
 };

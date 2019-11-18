@@ -1,10 +1,9 @@
 <template>
   <div class="form form--2">
     <form class="form form__grid">
-      <FormCheckbox label="Você é estudante?" :options="petTypes" :onChange="setPetType" />
-      <FormCheckbox label="qual espécie está buscando para adotar?" :options="species" :onChange="setSpecie" />
-      <FormCheckbox label="Gênero do animal" :options="genders" :onChange="setGender" />
-      <FormCheckbox label="Qual porte para adotar?" :options="sizes" :onChange="setSize" />
+      <FormCheckbox label="Você é estudante?" :options="studentOptions" :onChange="setStudent" />
+      <FormInput id="state" label="Quantas pessoas moram com você?" :onChange="(e) => setState('qtdPeople', e.target.value)" />
+      <FormCheckbox label="Quem são as pessoas que moram com você?" :options="peopleOptions" :onChange="setPeopleType" />
     </form>
   </div>
 </template>
@@ -17,23 +16,14 @@ export default {
   data() {
     return {
       user: {},
-      petTypes: [
-        "Gato",
-        "Cachorro",
-        "Não possuo"
+      studentOptions: [
+        "Sim",
+        "Não"
       ],
-      species: [
-        "Gato",
-        "Cachorro",
-      ],
-      genders: [
-        "Feminino",
-        "Masculino",
-      ],
-      sizes: [
-        'Pequeno',
-        'Médio',
-        'Grande'
+      peopleOptions: [
+        "Familiares",
+        "Amigos",
+        "Cônjuge"
       ]
     }
   },
@@ -51,20 +41,16 @@ export default {
       this.user[item] = value;
       this.$emit('setUserData', this.user);
     },
-    setPetType(option) {
-      this.user.petType = option;
+    setStudent(option) {
+      if(option === 'Sim') {
+        this.user.isStudent = true;
+      } else {
+        this.user.isStudent = false;
+      }
       this.$emit('setUserData', this.user);
     },
-    setSpecie(option) {
-      this.user.petSpecie = option;
-      this.$emit('setUserData', this.user);
-    },
-    setGender(option) {
-      this.user.petGender = option;
-      this.$emit('setUserData', this.user);
-    },
-    setSize(option) {
-      this.user.petSize = option;
+    setPeopleType(option) {
+      this.user.peopleType = option;
       this.$emit('setUserData', this.user);
     }
   }
